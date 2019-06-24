@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190624090308) do
+ActiveRecord::Schema.define(version: 20190624153312) do
 
   create_table "pictures", force: :cascade do |t|
     t.string "asset"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "taken_at"
   end
 
 end

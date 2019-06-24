@@ -13,4 +13,20 @@ RSpec.describe Picture, type: :model do
       expect(picture.save).to eq(true)
     end
   end
+
+  describe '#taken_at' do
+    context 'when picture metadata has date when it was taken' do
+      let (:picture) { create(:picture_with_metadata) }
+      it 'stores it on taken_at attribute' do
+        expect(picture.taken_at).to eq(DateTime.new(2019, 4, 13, 15, 58, 13))
+      end
+    end
+
+    context 'when picture has no metadata' do
+      let (:picture) { create(:picture) }
+      it 'leaves taken_at blank' do
+        expect(picture.taken_at).to be_blank
+      end
+    end
+  end
 end

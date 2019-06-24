@@ -7,8 +7,6 @@ class PictureUploader < CarrierWave::Uploader::Base
   storage :file
   # storage :fog
 
-  process :strip
-
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
@@ -46,6 +44,12 @@ class PictureUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
+
+  def exif
+    manipulate! do |img|
+      return MiniMagick::Image.new(img.path).exif
+    end
+  end
 
   def strip
     manipulate! do |img|
