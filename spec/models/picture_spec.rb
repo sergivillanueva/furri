@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Picture, type: :model do
-  context 'validation test' do
+  context 'validation tests' do
     it 'ensures asset is present' do
       picture = build(:picture, asset: nil)
       expect(picture.save).to eq(false)
