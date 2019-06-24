@@ -5,6 +5,7 @@ RSpec.describe Picture, type: :model do
     it 'ensures asset is present' do
       picture = build(:picture, asset: nil)
       expect(picture.save).to eq(false)
+      expect(picture.errors.keys).to include(:asset)
     end
 
     it 'should save successfully' do
