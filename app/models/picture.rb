@@ -7,12 +7,13 @@ class Picture < ApplicationRecord
   before_save :strip_metadata
 
   def set_taken_at
-    date_time_original = asset.exif["DateTimeOriginal"]
+    date_time_original = asset.exif['DateTimeOriginal']
     return if date_time_original.nil?
-    self.taken_at = DateTime.strptime(date_time_original, "%Y:%m:%d %H:%M:%S")
+
+    self.taken_at = DateTime.strptime(date_time_original, '%Y:%m:%d %H:%M:%S')
   end
 
   def strip_metadata
-    self.asset.strip
+    asset.strip
   end
 end
