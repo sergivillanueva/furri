@@ -1,2 +1,6 @@
+= simple_form_for [:admin, Picture.new] do |f|
+  = f.input :asset
+  = f.button :submit
+
 #pictures
   = render partial: 'admin/dashboard/picture', collection: @pictures

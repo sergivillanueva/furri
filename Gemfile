@@ -60,4 +60,5 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'carrierwave', '>= 2.0.0.rc', '< 3.0'
 gem 'mini_magick'
 gem 'rubocop-rails'
+gem 'simple_form'
 gem 'slim-rails'
