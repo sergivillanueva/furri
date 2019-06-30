@@ -1,0 +1,16 @@
+table.table.table-sm.table-hover
+  thead
+    tr
+      th = 'Id'
+      th = 'Image'
+      th = 'Taken At'
+      th = 'Created At'
+  tbody
+    - @pictures.each do |picture|
+      tr
+        td = picture.id
+        td = image_tag picture.asset.icon.url, class: "img-thumbnail"
+        td = picture.taken_at
+        td = picture.created_at
+        td
+          = link_to t("destroy"), "#"

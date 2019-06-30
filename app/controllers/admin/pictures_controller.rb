@@ -4,6 +4,10 @@ module Admin
       @picture = Picture.create picture_params
     end
 
+    def index
+      @pictures = Picture.all
+    end
+
     private
 
     def picture_params
