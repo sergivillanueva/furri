@@ -1,0 +1,5 @@
+<% if @picture.valid? %>
+  $("#pictures").prepend('<%= render(partial: "admin/dashboard/picture", locals: { picture: @picture }) %>');
+<% else %>
+  alert("Error!");
+<% end %>

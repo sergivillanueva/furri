@@ -1,5 +1,5 @@
 = simple_form_for [:admin, Picture.new] do |f|
-  = f.input :asset
+  = f.input :asset, input_html: { multiple: true, name: 'picture[asset]' }
   = f.button :submit
 
 #pictures

@@ -9,6 +9,10 @@ RSpec.describe 'Dashboard', type: :feature do
     Rails.root.join('spec', 'support', 'pictures', 'fountain.jpg')
   end
 
+  let(:other_file_path) do
+    Rails.root.join('spec', 'support', 'pictures', 'street.jpg')
+  end
+
   scenario 'User visits Dashboard', js: true do
     visit admin_dashboard_path
     expect(page).to have_css('#pictures img')
@@ -25,4 +29,13 @@ RSpec.describe 'Dashboard', type: :feature do
     visit admin_dashboard_path
     expect { click_button 'Create Picture' }.to change { Picture.count }.by(0)
   end
+
+  scenario 'User uploads multiple files', js: true do
+    visit admin_dashboard_path
+    pictures_count = Picture.count
+    page.attach_file('picture_asset', [file_path, other_file_path])
+    click_button 'Create Picture'
+    expect(Picture.count).to eq(pictures_count + 2)
+  end
+
 end
