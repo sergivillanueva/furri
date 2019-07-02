@@ -29,4 +29,21 @@ RSpec.describe Picture, type: :model do
       end
     end
   end
+
+  describe '#file_size' do
+    let(:picture) { build(:picture) }
+
+    context 'when building new picture' do
+      it 'is blank by default' do
+        expect(picture.file_size).to be_blank
+      end
+    end
+
+    context 'when picture is saved' do
+      it 'stores its file size' do
+        picture.save
+        expect(picture.file_size).to eq(195_051)
+      end
+    end
+  end
 end
