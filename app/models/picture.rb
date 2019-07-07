@@ -9,6 +9,8 @@ class Picture < ApplicationRecord
   before_save :set_dimensions, if: :asset_changed?
   before_save :set_landscape, if: :asset_changed?
 
+  scope :landscape, -> { where(landscape: true) }
+
   def set_taken_at
     date_time_original = asset.exif['DateTimeOriginal']
     return if date_time_original.nil?

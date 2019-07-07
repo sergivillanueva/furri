@@ -65,4 +65,36 @@ RSpec.describe Picture, type: :model do
       end
     end
   end
+
+  describe '#landscape?' do
+    let(:landscape_picture) { create(:picture) }
+    let(:portrait_picture) { create(:street_picture) }
+
+    context 'when picture is landscape' do
+      it 'stores true' do
+        expect(landscape_picture.landscape?).to be(true)
+      end
+    end
+
+    context 'when picture is portrait' do
+      it 'stores false' do
+        expect(portrait_picture.landscape?).to be(false)
+      end
+    end
+  end
+
+  describe '.landscape' do
+    context 'when there are 3 pictures and one of them is landscape' do
+      before do
+        create(:picture)
+        create(:fountain_picture)
+        create(:street_picture)
+      end
+
+      it 'returns one picture' do
+        expect(Picture.landscape.size).to eq(1)
+      end
+    end
+
+  end
 end
