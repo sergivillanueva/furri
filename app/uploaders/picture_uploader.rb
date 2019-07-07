@@ -52,4 +52,8 @@ class PictureUploader < CarrierWave::Uploader::Base
       img
     end
   end
+
+  def dimensions
+    `identify -format "%wx%h" #{file.path}`.split(/x/)
+  end
 end

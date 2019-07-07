@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190702173011) do
+ActiveRecord::Schema.define(version: 20190707172532) do
 
   create_table "pictures", force: :cascade do |t|
     t.string "asset"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 20190702173011) do
     t.datetime "updated_at", null: false
     t.datetime "taken_at"
     t.integer "file_size"
+    t.integer "height"
+    t.integer "width"
+    t.boolean "landscape"
   end
 
 end

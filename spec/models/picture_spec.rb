@@ -46,4 +46,23 @@ RSpec.describe Picture, type: :model do
       end
     end
   end
+
+  describe 'dimensions' do
+    let(:picture) { build(:picture) }
+
+    context 'when building new picture' do
+      it 'are blank by default' do
+        expect(picture.width).to be_blank
+        expect(picture.height).to be_blank
+      end
+    end
+
+    context 'when picture is saved' do
+      it 'stores its dimensions' do
+        picture.save
+        expect(picture.width).to eq(1_600)
+        expect(picture.height).to eq(903)
+      end
+    end
+  end
 end

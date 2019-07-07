@@ -6,6 +6,8 @@ class Picture < ApplicationRecord
   before_save :set_taken_at
   before_save :strip_metadata
   before_save :set_file_size, if: :asset_changed?
+  before_save :set_dimensions, if: :asset_changed?
+  before_save :set_landscape, if: :asset_changed?
 
   def set_taken_at
     date_time_original = asset.exif['DateTimeOriginal']
@@ -23,4 +25,20 @@ class Picture < ApplicationRecord
 
     self.file_size = asset.file.size
   end
+
+  def set_dimensions
+    return if asset.blank?
+
+    dimensions = asset.dimensions
+    self.width = dimensions[0]
+    self.height = dimensions[1]
+  end
+
+  def set_landscape
+    return if asset.blank?
+
+    self.landscape = width > height
+  end
+
+
 end
