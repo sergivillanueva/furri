@@ -1,0 +1,29 @@
+<section id="chronology">
+  <div class="wrapper">
+    <h2 class="section-title text-center">Cronologia</h2>
+    <p class="lead larger text-center">Les meves millors fotos ordenades de més antiga a més recent.</p>
+    <div class="rev_slider_wrapper fullscreen-container">
+      <div id="slider11" class="rev_slider fullscreenbanner bg-dark" data-version="5.4.7">
+        <ul>
+          <% @pictures.each do |picture| %>
+            <li data-transition="fade" data-thumb="<%= picture.asset.slide.url %>"><img src="<%= picture.asset.slide.url %>" alt="" />
+              <div class="tp-caption font-title font-weight-700 text-uppercase color-white tp-resizeme" id="slide-<%=picture.id%>-layer-1"
+                data-x="['center','center','center','center']" 
+                data-y="['top','top','top','top']" 
+                data-voffset="['-120','0,'0','0']"
+                data-fontsize="['25','25','25','25']"
+                data-lineheight="['65','65','65','45']"
+                data-width="none" 
+                data-height="none"
+                data-whitespace="nowrap"
+                data-frames='[{"from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","speed":1500,"to":"o:1;","delay":0,"ease":"Power3.easeInOut"},{"delay":"wait","speed":1000,"to":"auto:auto;","mask":"x:0;y:0;s:inherit;e:inherit;","ease":"Power3.easeInOut"}]' 
+                data-responsive="on" 
+                data-responsive_offset="on" style="z-index: 9; letter-spacing: 5px;"><%= l(picture.taken_at.to_date, format: :long) %></div>
+            </li>
+          <% end %>
+        </ul>
+        <div class="tp-bannertimer tp-bottom"></div>
+      </div>
+    </div>
+  </div>
+</section>

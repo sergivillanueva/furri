@@ -1,0 +1,28 @@
+<section id="portfolio" data-aos="fade-down" data-aos-duration="2000">
+  <div class="wrapper">
+    <div class="container inner pt-60 pb-140">
+      <h2 class="section-title text-center">Últimes fotos</h2>
+      <p class="lead larger text-center">Sóc el Cocker Spaniel més fotografiat del món</p>
+      <div class="space30"></div>
+      <div id="cube-grid-filter" class="cbp-filter-container text-center">
+        <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">Totes</div>
+        <div data-filter=".cat1" class="cbp-filter-item">Jugant</div>
+        <div data-filter=".cat2" class="cbp-filter-item">Dormint</div>
+        <div data-filter=".cat3" class="cbp-filter-item">Altres</div>
+      </div>
+      <div class="clearfix"></div>
+      <div class="space20"></div>
+      <div id="cube-grid" class="cbp light-gallery">
+        <% @last_pictures.each do |picture| %>
+          <div class="cbp-item <%= %w(cat1 cat2 cat3).sample %>">
+            <figure class="overlay overlay2"><a href="<%= picture.asset.url %>"><img src="<%= picture.asset.thumb.url %>" alt="" /></a></figure>
+          </div>
+        <% end %>
+      </div>
+      <div class="space30"></div>
+      <!--
+        <div id="cube-grid-more" class="text-center"> <a href="ajax/loadmore7.html" class="cbp-l-loadMore-link btn btn-full-rounded" rel="nofollow"> <span class="cbp-l-loadMore-defaultText">Més fotos</span> <span class="cbp-l-loadMore-loadingText">Carregant...</span> <span class="cbp-l-loadMore-noMoreLoading">No hi ha més fotos</span> </a> </div>
+      -->
+    </div>
+  </div>
+</section>

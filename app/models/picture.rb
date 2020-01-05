@@ -10,6 +10,7 @@ class Picture < ApplicationRecord
   before_save :set_landscape, if: :asset_changed?
 
   scope :landscape, -> { where(landscape: true) }
+  scope :with_taken_at, -> { where.not(taken_at: nil) }
 
   def set_taken_at
     date_time_original = asset.exif['DateTimeOriginal']
