@@ -1,4 +1,7 @@
 jQuery ->
+  if $('#new_picture').length == 0
+    return
+
   $('#new_picture').fileupload
     dataType: 'script'
     add: (e, data) ->
