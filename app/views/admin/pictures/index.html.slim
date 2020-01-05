@@ -10,7 +10,7 @@ table.table.table-sm.table-hover
       tr
         td = picture.id
         td = image_tag picture.asset.icon.url, class: "img-thumbnail"
-        td = picture.taken_at
-        td = picture.created_at
+        td = l picture.taken_at, format: :long if picture.taken_at.present?
+        td = l picture.created_at, format: :long
         td
-          = link_to t("destroy"), "#"
+          / = link_to t("destroy"), "#"

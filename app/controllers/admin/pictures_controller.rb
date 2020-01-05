@@ -5,7 +5,7 @@ module Admin
     end
 
     def index
-      @pictures = Picture.all
+      @pictures = Picture.order("created_at DESC")
     end
 
     private
