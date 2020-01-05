@@ -26,7 +26,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   version :slide do
-    process resize_to_fit: [-1, 550]
+    process resize_to_fit: [889, 500]
   end
 
   version :icon do
